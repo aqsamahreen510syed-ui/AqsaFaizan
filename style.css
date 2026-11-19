@@ -22,18 +22,10 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--primary);
+    background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.7;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-.page-border{
-    border: none;
-    margin: 0;
-    padding: 0;
 }
 
 h1,
@@ -48,16 +40,17 @@ h3,
     direction: rtl;
 }
 
+/* Outer Ornamental Frame */
+.page-border {
+    border: 0px solid rgba(201, 154, 69, 0.45);
+    margin: 0px;
+    position: relative;
+}
 
-
-/* Hero Section */aqsa
+/* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(180deg,
-            #3A0912 0%,
-            #5E1220 48%,
-            #C89A78 82%,
-            #F5ECE0 100%);
+    background: radial-gradient(circle at top, var(--primary-light) 0%, var(--primary) 100%);
     color: var(--bg-light);
     display: flex;
     flex-direction: column;
@@ -69,12 +62,8 @@ h3,
     overflow: hidden;
 }
 
-.hero-pattern {
-    display: none;
-}
-
 /* Subtle Geometric Pattern Overlay */
-/*.hero-pattern {
+.hero-pattern {
     position: absolute;
     inset: 0;
     opacity: 0.08;
@@ -83,7 +72,7 @@ h3,
     background-size: 36px 36px;
     background-position: 0 0, 18px 18px;
     pointer-events: none;
-}*/
+}
 
 .hero-content {
     position: relative;
