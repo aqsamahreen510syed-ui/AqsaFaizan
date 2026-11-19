@@ -22,7 +22,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-light);
+    background-color: var(--primary);
     color: var(--text-dark);
     line-height: 1.7;
     overflow-x: hidden;
@@ -40,15 +40,17 @@ h3,
     direction: rtl;
 }
 
-/* Outer Ornamental Frame */
+/* Outer Wrapper (No Border / No Margin) */
 .page-border {
-    border: 0px solid rgba(201, 154, 69, 0.45);
-    margin: 0px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     position: relative;
 }
 
 /* Hero Section */
-aqsa .hero {
+.hero {
     min-height: 100vh;
     width: 100%;
     background: linear-gradient(180deg,
@@ -67,6 +69,11 @@ aqsa .hero {
     overflow: hidden;
 }
 
+/* Dot Pattern Hidden */
+.hero-pattern {
+    display: none;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
@@ -74,32 +81,6 @@ aqsa .hero {
     max-width: 850px;
     margin: 0 auto;
     text-align: center;
-}
-
-.countdown {
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Subtle Geometric Pattern Overlay */
-.hero-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.08;
-    background-image: radial-gradient(var(--accent-light) 1px, transparent 1px),
-        radial-gradient(var(--accent-light) 1px, transparent 1px);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 850px;
 }
 
 .bismillah-svg {
@@ -128,7 +109,7 @@ aqsa .hero {
     font-size: 0.95rem;
     max-width: 650px;
     margin: 0 auto 1.5rem auto;
-    color: rgba(253, 249, 243, 0.9);
+    color: rgba(253, 249, 243, 0.92);
     font-weight: 300;
     line-height: 1.9;
 }
@@ -171,12 +152,21 @@ aqsa .hero {
 .wedding-date-hero {
     margin-top: 1.5rem;
     padding: 0.75rem 2rem;
-    border-top: 1px solid rgba(201, 154, 69, 0.55);
-    border-bottom: 1px solid rgba(201, 154, 69, 0.55);
+    border-top: 1px solid rgba(58, 9, 18, 0.45);
+    border-bottom: 1px solid rgba(58, 9, 18, 0.45);
     font-size: 1.05rem;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     display: inline-block;
+    color: #3A0912;
+}
+
+.wedding-date-hero .subtitle-top {
+    display: inline-block;
+    color: #3A0912;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
 }
 
 /* Countdown Timer */
@@ -189,8 +179,8 @@ aqsa .hero {
 }
 
 .time-box {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(201, 154, 69, 0.4);
+    background: rgba(58, 9, 18, 0.85);
+    border: 1px solid var(--accent);
     padding: 0.9rem 1.2rem;
     min-width: 82px;
     border-radius: 6px;
@@ -210,7 +200,7 @@ aqsa .hero {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: rgba(253, 249, 243, 0.8);
+    color: rgba(253, 249, 243, 0.9);
 }
 
 /* General Sections */
@@ -219,6 +209,7 @@ section {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
+    background-color: var(--bg-light);
 }
 
 .section-title {
