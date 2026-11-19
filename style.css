@@ -47,10 +47,15 @@ h3,
     position: relative;
 }
 
-/* Hero Section */aqsa
-.hero {
+/* Hero Section */
+aqsa .hero {
     min-height: 100vh;
-    background: radial-gradient(circle at top, var(--primary-light) 0%, var(--primary) 100%);
+    width: 100%;
+    background: linear-gradient(180deg,
+            #3A0912 0%,
+            #5E1220 55%,
+            #B88464 85%,
+            #F5ECE0 100%);
     color: var(--bg-light);
     display: flex;
     flex-direction: column;
@@ -60,6 +65,23 @@ h3,
     padding: 4.5rem 1.5rem;
     position: relative;
     overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Subtle Geometric Pattern Overlay */
