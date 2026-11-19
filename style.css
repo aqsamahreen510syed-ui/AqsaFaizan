@@ -193,6 +193,8 @@ h3,
 
 /* General Sections */
 section {
+    background: radial-gradient(circle at top, var(--primary-light) 0%, var(--primary) 100%);
+    color: var(--bg-light);
     padding: 5rem 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -220,7 +222,7 @@ section {
 
 /* Quran Verse Section */
 .verse-box {
-    background-color: var(--primary);
+    background-color: var(--bg-card);
     padding: 3rem 2rem;
     border-radius: 8px;
     border: 1px solid rgba(201, 154, 69, 0.4);
