@@ -480,3 +480,144 @@ footer .dua {
         display: none;
     }
 }
+
+/* Lock scroll until gate opens */
+body.gate-locked {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Full-screen Gate Overlay */
+.gate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    perspective: 1400px;
+}
+
+.gate-overlay.opened {
+    pointer-events: none;
+}
+
+/* Left & Right Royal Burgundy Doors */
+.gate-panel {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at center, #5E1220 0%, #32070F 100%);
+    background-image:
+        radial-gradient(rgba(243, 211, 140, 0.14) 1px, transparent 1px),
+        linear-gradient(180deg, #3A0912 0%, #4A0E17 50%, #2B060D 100%);
+    background-size: 32px 32px, 100% 100%;
+    transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+}
+
+.gate-left {
+    left: 0;
+    border-right: 1.5px solid rgba(201, 154, 69, 0.65);
+    box-shadow: inset -12px 0 30px rgba(0, 0, 0, 0.45);
+    transform-origin: left center;
+}
+
+.gate-right {
+    right: 0;
+    border-left: 1.5px solid rgba(201, 154, 69, 0.65);
+    box-shadow: inset 12px 0 30px rgba(0, 0, 0, 0.45);
+    transform-origin: right center;
+}
+
+/* Door Swing / Slide Open State */
+.gate-overlay.opened .gate-left {
+    transform: translateX(-100%) rotateY(22deg);
+}
+
+.gate-overlay.opened .gate-right {
+    transform: translateX(100%) rotateY(-22deg);
+}
+
+/* Center Gold Wax Seal */
+.gate-seal-wrap {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.gate-overlay.opened .gate-seal-wrap {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.wax-seal {
+    width: 124px;
+    height: 124px;
+    margin: 0 auto 1.1rem auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #F3D38C 0%, #C99A45 62%, #9C7126 100%);
+    border: 3px double rgba(58, 9, 18, 0.55);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.55),
+        0 0 0 8px rgba(201, 154, 69, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3A0912;
+    animation: sealPulse 2.2s infinite ease-in-out;
+}
+
+.seal-initials {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.35rem;
+    line-height: 1;
+}
+
+.seal-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.gate-prompt {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes sealPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(201, 154, 69, 0.18);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 0 14px rgba(201, 154, 69, 0.06);
+    }
+}
+
+/* Gentle Bismillah & Hero Fade-In After Doors Open */
+.hero-content {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1.1s ease 0.45s, transform 1.1s ease 0.45s;
+}
+
+body.gate-open .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,3 +1,31 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const gateOverlay = document.getElementById("gateOverlay");
+
+    if (gateOverlay) {
+        document.body.classList.add("gate-locked");
+
+        const openInvitation = () => {
+            if (gateOverlay.classList.contains("opened")) return;
+
+            gateOverlay.classList.add("opened");
+            document.body.classList.remove("gate-locked");
+            document.body.classList.add("gate-open");
+
+            // Remove overlay from DOM after door animation finishes
+            setTimeout(() => {
+                gateOverlay.remove();
+            }, 1500);
+        };
+
+        gateOverlay.addEventListener("click", openInvitation);
+        gateOverlay.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openInvitation();
+            }
+        });
+    }
+});
 // Countdown Timer (Set to Dec 19, 2026 11:30:00)
 const weddingDate = new Date("December 19, 2026 11:30:00").getTime();
 
