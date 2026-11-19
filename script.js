@@ -24,31 +24,3 @@ document.getElementById("rsvpForm").addEventListener("submit", function (e) {
     document.getElementById("rsvp-message").style.display = "block";
     this.reset();
 });
-
-// Falling Cherry Blossom Petals
-(function createCherryBlossoms() {
-    const container = document.getElementById("petalsContainer");
-    if (!container) return;
-
-    const isMobile = window.innerWidth < 600;
-    const petalCount = isMobile ? 16 : 28;
-
-    for (let i = 0; i < petalCount; i++) {
-        const petal = document.createElement("span");
-        petal.className = "petal";
-
-        const size = Math.random() * 8 + 10; // 10px to 18px
-        const leftPos = Math.random() * 100; // 0% to 100% width
-        const fallDuration = Math.random() * 6 + 7; // 7s to 13s
-        const swayDuration = Math.random() * 3 + 2.5; // 2.5s to 5.5s
-        const delay = -(Math.random() * fallDuration); // Start mid-fall on load
-
-        petal.style.width = `${size}px`;
-        petal.style.height = `${size * 0.75}px`;
-        petal.style.left = `${leftPos}%`;
-        petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
-        petal.style.animationDelay = `${delay}s, ${delay}s`;
-
-        container.appendChild(petal);
-    }
-})();
