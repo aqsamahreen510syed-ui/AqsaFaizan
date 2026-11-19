@@ -64,7 +64,7 @@ h3,
 
 /* Subtle Geometric Pattern Overlay */
 .hero-pattern {
-    position: absolute;
+    position: fixed;
     inset: 0;
     opacity: 0.08;
     background-image: radial-gradient(var(--accent-light) 1px, transparent 1px),
