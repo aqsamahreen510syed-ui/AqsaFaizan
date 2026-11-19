@@ -416,3 +416,65 @@ footer .dua {
     margin-top: 0.5rem;
     font-size: 0.82rem;
 }
+
+/* Falling Cherry Blossom Petals */
+.petals-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    border-radius: 100% 0 100% 20%;
+    background: linear-gradient(135deg, #ffd6e0 0%, #f7a8b8 65%, #e8839b 100%);
+    box-shadow: 0 2px 6px rgba(247, 168, 184, 0.35);
+    opacity: 0.85;
+    will-change: transform;
+    animation-name: petalFall, petalSway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+}
+
+@keyframes petalFall {
+    0% {
+        top: -30px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.88;
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        top: 105vh;
+        opacity: 0;
+    }
+}
+
+@keyframes petalSway {
+
+    0%,
+    100% {
+        transform: translateX(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(42px) rotate(180deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .petals-container {
+        display: none;
+    }
+}
