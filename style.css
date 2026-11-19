@@ -220,7 +220,7 @@ section {
 
 /* Quran Verse Section */
 .verse-box {
-    background-color: var(--bg-card);
+    background-color: var(--primary);
     padding: 3rem 2rem;
     border-radius: 8px;
     border: 1px solid rgba(201, 154, 69, 0.4);
