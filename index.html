@@ -1,433 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nikah Invitation | Aqsa Mahreen & Mohammed Faizan Ahmed</title>
-  <meta property="og:title" content="Nikah Invitation | Aqsa Mahreen & Mohammed Faizan Ahmed"/>
-  <!-- Google Fonts for Elegant Typography aqsa-->
+  <title>Nikah Invitation | Aqsa Mahreen &amp; Mohammed Faizan Ahmed</title>
+  <meta property="og:title" content="Nikah Invitation | Aqsa Mahreen & Mohammed Faizan Ahmed" />
+  <meta property="og:description" content="Together with our families, we cordially invite you to grace the auspicious occasion of our Nikah & Walima." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --emerald: #0B3B2C;
-      --emerald-light: #13523E;
-      --gold: #C8A24A;
-      --gold-light: #E5C87B;
-      --ivory: #FAF8F2;
-      --cream: #F2EDE1;
-      --text-dark: #1E2421;
-      --text-muted: #5A625E;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--ivory);
-      color: var(--text-dark);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    .serif {
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .arabic {
-      font-family: 'Amiri', serif;
-      direction: rtl;
-    }
-
-    /* Decorative Arch Border Frame */
-    .page-border {
-      border: 1px solid rgba(200, 162, 74, 0.35);
-      margin: 12px;
-      position: relative;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, var(--emerald-light) 0%, var(--emerald) 100%);
-      color: var(--ivory);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 1.5rem;
-      position: relative;
-    }
-
-    .bismillah-svg {
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto 0.5rem auto;
-      filter: drop-shadow(0 2px 10px rgba(200, 162, 74, 0.35));
-    }
-
-    .bismillah-svg svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .subtitle-top {
-      font-size: 0.85rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 2rem;
-    }
-
-    /* Parents Names Calligraphy */
-    .parents-text {
-      font-size: 0.95rem;
-      max-width: 650px;
-      color: rgba(250, 248, 242, 0.9);
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-      line-height: 1.9;
-    }
-
-    .parent-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: clamp(1.35rem, 3vw, 1.75rem);
-      color: var(--gold-light);
-      letter-spacing: 0.5px;
-      display: inline-block;
-      margin: 0.25rem 0;
-    }
-
-    /* Bride & Groom Sweeping Calligraphy */
-    .couple-names {
-      font-family: 'Great Vibes', cursive;
-      font-weight: 400;
-      font-size: clamp(3.8rem, 9vw, 6.5rem);
-      color: var(--gold-light);
-      line-height: 1.15;
-      margin: 1rem 0;
-      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.35);
-    }
-
-    .couple-names span.amp {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--ivory);
-      margin: 0.1rem 0;
-    }
-
-    .wedding-date-hero {
-      margin-top: 1.5rem;
-      padding: 0.75rem 2rem;
-      border-top: 1px solid rgba(200, 162, 74, 0.5);
-      border-bottom: 1px solid rgba(200, 162, 74, 0.5);
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* Countdown Timer */
-    .countdown {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .time-box {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(200, 162, 74, 0.3);
-      padding: 0.9rem 1.2rem;
-      min-width: 80px;
-      border-radius: 4px;
-    }
-
-    .time-box span {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1;
-    }
-
-    .time-box small {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: rgba(250, 248, 242, 0.75);
-    }
-
-    /* Sections General */
-    section {
-      padding: 5rem 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2.6rem;
-      color: var(--emerald);
-      margin-bottom: 0.5rem;
-    }
-
-    .divider {
-      width: 80px;
-      height: 2px;
-      background-color: var(--gold);
-      margin: 0 auto 2.5rem auto;
-    }
-
-    /* Quran Verse Section */
-    .verse-box {
-      background-color: var(--cream);
-      padding: 3rem 2rem;
-      border-radius: 8px;
-      border: 1px solid rgba(200, 162, 74, 0.3);
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .verse-arabic {
-      font-size: 1.8rem;
-      color: var(--emerald);
-      margin-bottom: 1rem;
-      line-height: 2;
-    }
-
-    .verse-translation {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--text-dark);
-      margin-bottom: 0.75rem;
-    }
-
-    .verse-ref {
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    /* Events Grid */
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .event-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(200, 162, 74, 0.35);
-      border-top: 4px solid var(--emerald);
-      padding: 2.5rem 1.8rem;
-      border-radius: 6px;
-      box-shadow: 0 10px 30px rgba(11, 59, 44, 0.04);
-      transition: transform 0.3s ease;
-    }
-
-    .event-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .event-card h3 {
-      font-size: 1.9rem;
-      color: var(--emerald);
-      margin-bottom: 0.5rem;
-    }
-
-    .event-date {
-      color: var(--gold);
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .event-details {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-outline {
-      display: inline-block;
-      padding: 0.6rem 1.4rem;
-      border: 1px solid var(--emerald);
-      color: var(--emerald);
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline:hover {
-      background-color: var(--emerald);
-      color: var(--ivory);
-    }
-
-    /* RSVP Section */
-    .rsvp-container {
-      background: var(--emerald);
-      color: var(--ivory);
-      padding: 4rem 2rem;
-      border-radius: 8px;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .rsvp-container h2 {
-      color: var(--gold-light);
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .rsvp-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      margin-top: 2rem;
-      text-align: left;
-    }
-
-    .rsvp-form input,
-    .rsvp-form select,
-    .rsvp-form textarea {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border: 1px solid rgba(200, 162, 74, 0.4);
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--ivory);
-      border-radius: 4px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-    }
-
-    .rsvp-form input::placeholder,
-    .rsvp-form textarea::placeholder {
-      color: rgba(250, 248, 242, 0.6);
-    }
-
-    .rsvp-form select option {
-      background: var(--emerald);
-      color: var(--ivory);
-    }
-
-    .btn-gold {
-      background-color: var(--gold);
-      color: var(--emerald);
-      border: none;
-      padding: 1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-    }
-
-    .btn-gold:hover {
-      background-color: var(--gold-light);
-    }
-
-    #rsvp-message {
-      margin-top: 1rem;
-      color: var(--gold-light);
-      font-weight: 500;
-      text-align: center;
-      display: none;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      background-color: var(--cream);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      border-top: 1px solid rgba(200, 162, 74, 0.25);
-    }
-
-    footer .dua {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      color: var(--emerald);
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
   <div class="page-border">
     <!-- HERO SECTION -->
     <header class="hero">
-      <div class="bismillah-svg" aria-label="Bismillah ir-Rahman ir-Rahim">
-        <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg">
-          <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
-            font-family="'Aref Ruqaa', 'Amiri', serif" font-size="68" fill="#E5C87B" letter-spacing="1">
-            ﷽
-          </text>
-        </svg>
-      </div>
-      <p class="subtitle-top">In the name of Allah, the Most Gracious, the Most Merciful</p>
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <div class="arabic bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <p class="subtitle-top">In the name of Allah, the Most Gracious, the Most Merciful</p>
 
-      <p class="parents-text">
-        With the blessings of<br>
-        <strong>Late Mr. & Mrs. Syed Hasham Sahab & Family</strong> <br> <strong>Mr. & Mrs. Syed Kazim</strong><br>
-        cordially invite you to grace the auspicious occasion of the Nikah of their daughter
-      </p>
+        <p class="parents-text">
+          Together with their parents<br>
+          <span class="parent-names">Mr. &amp; Mrs. Syed</span>
+          <span class="parent-amp">&amp;</span>
+          <span class="parent-names">Mr. &amp; Mrs. Ahmed</span><br>
+          cordially invite you to grace the auspicious occasion of the Nikah of
+        </p>
 
-      <h1 class="couple-names">
-        Aqsa Mahreen
-        <span class="amp">&amp;</span>
-        Mohammed Faizan Ahmed
-      </h1>
+        <h1 class="couple-names">
+          Aqsa Mahreen
+          <span class="amp">&amp;</span>
+          Mohammed Faizan Ahmed
+        </h1>
 
-      <div class="wedding-date-hero">
-        Monday, 21st December 2026
-      </div>
+        <div class="wedding-date-hero">
+          Saturday, 19th December 2026 • Hyderabad
+        </div>
 
-      <!-- Live Countdown -->
-      <div class="countdown" id="countdown">
-        <div class="time-box"><span id="days">00</span><small>Days</small></div>
-        <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
-        <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
-        <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+        <!-- Live Countdown -->
+        <div class="countdown" id="countdown">
+          <div class="time-box"><span id="days">00</span><small>Days</small></div>
+          <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+        </div>
       </div>
     </header>
 
@@ -435,12 +57,10 @@
     <section>
       <div class="verse-box">
         <p class="arabic verse-arabic">
-          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
-          مَّوَدَّةً وَرَحْمَةً
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
         </p>
         <p class="verse-translation">
-          “And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility
-          with them, and He has put love and mercy between your hearts.”
+          “And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between your hearts.”
         </p>
         <p class="verse-ref">Surah Ar-Rum (30:21)</p>
       </div>
@@ -450,7 +70,7 @@
     <section id="events">
       <h2 class="section-title">Wedding Celebrations</h2>
       <div class="divider"></div>
-      <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem auto;">
+      <p class="section-subtitle">
         Insha’Allah, we look forward to celebrating these cherished moments with your presence and Duas.
       </p>
 
@@ -497,7 +117,7 @@
     <section id="rsvp">
       <div class="rsvp-container">
         <h2>RSVP</h2>
-        <p style="font-size: 0.9rem; color: rgba(250,248,242,0.85);">
+        <p class="rsvp-subtitle">
           Kindly confirm your presence by 5th December 2026
         </p>
 
@@ -513,7 +133,7 @@
           </select>
           <select id="eventsAttending" required>
             <option value="" disabled selected>Which events will you attend?</option>
-            <option value="All Events">All Celebrations (Mehendi, Nikah & Walima)</option>
+            <option value="All Events">All Celebrations (Mehendi, Nikah &amp; Walima)</option>
             <option value="Nikah & Walima">Nikah &amp; Walima</option>
             <option value="Nikah Only">Nikah Ceremony Only</option>
             <option value="Walima Only">Dawat-e-Walima Only</option>
@@ -528,38 +148,12 @@
     <!-- FOOTER -->
     <footer>
       <p class="dua">BarakAllahu Lakuma Wa Baraka Alaykuma Wa Jama'a Baynakuma Fi Khayr</p>
-      <p>With best compliments from Siddiqui &amp; Khan Families</p>
-      <p style="margin-top: 0.5rem; font-size: 0.8rem;">For assistance, contact: +91 98765 43210</p>
+      <p>With best compliments from Syed &amp; Ahmed Families</p>
+      <p class="footer-contact">For assistance, contact: +91 98765 43210</p>
     </footer>
   </div>
 
-  <script>
-    // Countdown Timer Script (Set to Dec 19, 2026 11:30:00)
-    const weddingDate = new Date("December 19, 2026 11:30:00").getTime();
-
-    const timer = setInterval(function () {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "<p style='color: var(--gold-light); font-size: 1.2rem;'>Alhamdulillah, the celebrations have begun!</p>";
-        return;
-      }
-
-      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
-
-    // Simple Form Submission Handler
-    document.getElementById("rsvpForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      document.getElementById("rsvp-message").style.display = "block";
-      this.reset();
-    });
-  </script>
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
 </body>
-
 </html>
