@@ -22,10 +22,18 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-light);
+    background-color: var(--primary);
     color: var(--text-dark);
     line-height: 1.7;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.page-border{
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 h1,
