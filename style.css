@@ -622,3 +622,36 @@ body.gate-open .hero-content {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- Cherry Blossom Burst on Seal Tap --- */
+.burst-petal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 12px;
+    border-radius: 100% 0 100% 20%;
+    background: linear-gradient(135deg, #ffe3ea 0%, #f7a8b8 65%, #e8839b 100%);
+    box-shadow: 0 3px 10px rgba(247, 168, 184, 0.45);
+    pointer-events: none;
+    z-index: 10000;
+    /* Above the doors during the burst */
+    opacity: 0;
+    animation: blossomBurst 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes blossomBurst {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+    }
+
+    70% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.15) rotate(var(--rot));
+    }
+}

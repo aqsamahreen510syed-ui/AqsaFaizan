@@ -4,14 +4,45 @@ document.addEventListener("DOMContentLoaded", () => {
     if (gateOverlay) {
         document.body.classList.add("gate-locked");
 
+        const triggerBlossomBurst = () => {
+            const petalCount = 22;
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement("div");
+                petal.classList.add("burst-petal");
+
+                // Spread evenly in a 360-degree circle with slight randomness
+                const angle = (i / petalCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.35;
+                const distance = 130 + Math.random() * 210; // px outward
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const rot = Math.floor(Math.random() * 540 - 270);
+                const size = 12 + Math.random() * 8;
+
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size * 0.75}px`;
+                petal.style.setProperty("--tx", `${tx}px`);
+                petal.style.setProperty("--ty", `${ty}px`);
+                petal.style.setProperty("--rot", `${rot}deg`);
+                petal.style.animationDelay = `${Math.random() * 0.08}s`;
+
+                document.body.appendChild(petal);
+
+                setTimeout(() => {
+                    petal.remove();
+                }, 1300);
+            }
+        };
+
         const openInvitation = () => {
             if (gateOverlay.classList.contains("opened")) return;
+
+            triggerBlossomBurst();
 
             gateOverlay.classList.add("opened");
             document.body.classList.remove("gate-locked");
             document.body.classList.add("gate-open");
 
-            // Remove overlay from DOM after door animation finishes
             setTimeout(() => {
                 gateOverlay.remove();
             }, 1500);
