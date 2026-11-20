@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("gate-locked");
 
         const triggerBlossomBurst = () => {
-            const petalCount = 22;
+            const petalCount = 40;
 
             for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement("div");
                 petal.classList.add("burst-petal");
 
                 // Spread evenly in a 360-degree circle with slight randomness
-                const angle = (i / petalCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.35;
-                const distance = 130 + Math.random() * 210; // px outward
+                const angle = (i / petalCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+                const distance = 110 + Math.random() * 270; // px outward
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
-                const rot = Math.floor(Math.random() * 540 - 270);
-                const size = 12 + Math.random() * 8;
+                const rot = Math.floor(Math.random() * 720 - 360);
+                const size = 11 + Math.random() * 10;
 
                 petal.style.width = `${size}px`;
                 petal.style.height = `${size * 0.75}px`;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 setTimeout(() => {
                     petal.remove();
-                }, 1300);
+                }, 1450);
             }
         };
 
