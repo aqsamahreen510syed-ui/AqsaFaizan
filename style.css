@@ -461,13 +461,13 @@ footer .dua {
     }
 }
 
-/* Lock scroll until curtain opens */
+/* Lock scroll until gate opens */
 body.gate-locked {
     overflow: hidden;
     height: 100dvh;
 }
 
-/* Full-screen Curtain Overlay */
+/* Full-screen Gate Overlay */
 .gate-overlay {
     position: fixed;
     inset: 0;
@@ -476,7 +476,7 @@ body.gate-locked {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    overflow: hidden;
+    perspective: 1400px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
@@ -485,78 +485,50 @@ body.gate-locked {
     pointer-events: none;
 }
 
-/* Top Gold-Trimmed Velvet Pelmet / Valance */
-.curtain-valance {
+/* Left & Right Royal Burgundy Doors */
+.gate-panel {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 34px;
-    z-index: 3;
-    background: linear-gradient(180deg, #24040A 0%, #4A0E17 75%, #32070F 100%);
-    border-bottom: 2px solid var(--accent);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
-    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease 0.5s;
-}
-
-.gate-overlay.opened .curtain-valance {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-/* Left & Right Pleated Velvet Curtains */
-.curtain-panel {
-    position: absolute;
-    top: 0;
-    width: 50.5%;
+    width: 50%;
     height: 100%;
+    background: radial-gradient(circle at center, #5E1220 0%, #32070F 100%);
     background-image:
-        repeating-linear-gradient(90deg,
-            rgba(18, 2, 6, 0.68) 0px,
-            rgba(74, 14, 23, 0.25) 18px,
-            rgba(128, 26, 42, 0.32) 34px,
-            rgba(74, 14, 23, 0.25) 50px,
-            rgba(18, 2, 6, 0.72) 68px),
-        radial-gradient(circle at 50% 40%, #6B1422 0%, #3A0912 65%, #220409 100%);
-    background-size: 68px 100%, 100% 100%;
-    transition:
-        transform 1.55s cubic-bezier(0.65, 0, 0.35, 1),
-        width 1.55s cubic-bezier(0.65, 0, 0.35, 1),
-        border-radius 1.4s ease;
-    will-change: transform, width;
+        radial-gradient(rgba(243, 211, 140, 0.14) 1px, transparent 1px),
+        linear-gradient(180deg, #3A0912 0%, #4A0E17 50%, #2B060D 100%);
+    background-size: 32px 32px, 100% 100%;
+    transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
 }
 
-.curtain-left {
+.gate-left {
     left: 0;
-    transform-origin: top left;
-    border-right: 2px solid rgba(201, 154, 69, 0.75);
-    box-shadow: inset -18px 0 35px rgba(0, 0, 0, 0.55), 8px 0 25px rgba(0, 0, 0, 0.5);
+    border-right: 1.5px solid rgba(201, 154, 69, 0.65);
+    box-shadow: inset -12px 0 30px rgba(0, 0, 0, 0.45);
+    transform-origin: left center;
 }
 
-.curtain-right {
+.gate-right {
     right: 0;
-    transform-origin: top right;
-    border-left: 2px solid rgba(201, 154, 69, 0.75);
-    box-shadow: inset 18px 0 35px rgba(0, 0, 0, 0.55), -8px 0 25px rgba(0, 0, 0, 0.5);
+    border-left: 1.5px solid rgba(201, 154, 69, 0.65);
+    box-shadow: inset 12px 0 30px rgba(0, 0, 0, 0.45);
+    transform-origin: right center;
 }
 
-/* Curtain Drape & Gather Open State */
-.gate-overlay.opened .curtain-left {
-    transform: translateX(-92%) skewX(-3.5deg) scaleX(0.55);
-    border-bottom-right-radius: 45% 25%;
+/* Door Swing / Slide Open State */
+.gate-overlay.opened .gate-left {
+    transform: translateX(-100%) rotateY(22deg);
 }
 
-.gate-overlay.opened .curtain-right {
-    transform: translateX(92%) skewX(3.5deg) scaleX(0.55);
-    border-bottom-left-radius: 45% 25%;
+.gate-overlay.opened .gate-right {
+    transform: translateX(100%) rotateY(-22deg);
 }
 
 /* Center Gold Wax Seal */
 .gate-seal-wrap {
     position: relative;
-    z-index: 4;
+    z-index: 2;
     text-align: center;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .gate-overlay.opened .gate-seal-wrap {
@@ -710,3 +682,4 @@ body.gate-locked {
         }
     }
 }
+

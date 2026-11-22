@@ -79,8 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
                 gateOverlay.remove();
-            }, 1650);
+            }, 1500);
         };
+
+        
 
         gateOverlay.addEventListener("click", openInvitation);
         gateOverlay.addEventListener("keydown", (e) => {
