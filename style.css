@@ -159,7 +159,7 @@ body.gate-open .hero-content>*:nth-child(5) {
     font-weight: 400;
     font-size: clamp(3.4rem, 8.5vw, 5.8rem);
     color: var(--accent-light);
-    line-height: 1.15;
+    line-height: 1.35;
     margin: 1rem 0;
     text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
