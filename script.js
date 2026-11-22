@@ -1,6 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gateOverlay = document.getElementById("gateOverlay");
 
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const showVisibleElements = () => {
+        revealElements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.96) {
+                el.classList.add("is-visible");
+            }
+        });
+    };
+
+    if ("IntersectionObserver" in window && revealElements.length > 0) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.05,
+                rootMargin: "0px 0px -10px 0px"
+            }
+        );
+
+        revealElements.forEach((el) => observer.observe(el));
+        window.addEventListener("scroll", showVisibleElements, { passive: true });
+    } else {
+        revealElements.forEach((el) => el.classList.add("is-visible"));
+    }
+
     if (gateOverlay) {
         document.body.classList.add("gate-locked");
 
@@ -11,9 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const petal = document.createElement("div");
                 petal.classList.add("burst-petal");
 
-                // Spread evenly in a 360-degree circle with slight randomness
                 const angle = (i / petalCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-                const distance = 110 + Math.random() * 270; // px outward
+                const distance = 110 + Math.random() * 270;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 const rot = Math.floor(Math.random() * 720 - 360);
@@ -43,33 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove("gate-locked");
             document.body.classList.add("gate-open");
 
+            setTimeout(showVisibleElements, 500);
+
             setTimeout(() => {
                 gateOverlay.remove();
             }, 1500);
         };
-
-        // Scroll-reveal animations
-        const revealElements = document.querySelectorAll(".reveal");
-        if ("IntersectionObserver" in window && revealElements.length > 0) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("is-visible");
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                {
-                    threshold: 0.14,
-                    rootMargin: "0px 0px -40px 0px"
-                }
-            );
-
-            revealElements.forEach((el) => observer.observe(el));
-        } else {
-            revealElements.forEach((el) => el.classList.add("is-visible"));
-        }
 
         gateOverlay.addEventListener("click", openInvitation);
         gateOverlay.addEventListener("keydown", (e) => {
@@ -80,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 // Countdown Timer (Set to Dec 19, 2026 11:30:00)
 const weddingDate = new Date("December 19, 2026 11:30:00").getTime();
 
@@ -100,8 +112,6 @@ const timer = setInterval(function () {
     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
 }, 1000);
 
-
-
 // Falling Cherry Blossom Petals
 (function createCherryBlossoms() {
     const container = document.getElementById("petalsContainer");
@@ -114,11 +124,11 @@ const timer = setInterval(function () {
         const petal = document.createElement("span");
         petal.className = "petal";
 
-        const size = Math.random() * 8 + 10; // 10px to 18px
-        const leftPos = Math.random() * 100; // 0% to 100% width
-        const fallDuration = Math.random() * 6 + 7; // 7s to 13s
-        const swayDuration = Math.random() * 3 + 2.5; // 2.5s to 5.5s
-        const delay = -(Math.random() * fallDuration); // Start mid-fall on load
+        const size = Math.random() * 8 + 10;
+        const leftPos = Math.random() * 100;
+        const fallDuration = Math.random() * 6 + 7;
+        const swayDuration = Math.random() * 3 + 2.5;
+        const delay = -(Math.random() * fallDuration);
 
         petal.style.width = `${size}px`;
         petal.style.height = `${size * 0.75}px`;
