@@ -82,48 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1500);
         };
 
-        // Flowers & hearts that pop in and fade out while scrolling
-        const scrollFloatLayer = document.createElement("div");
-        scrollFloatLayer.className = "scroll-float-layer";
-        scrollFloatLayer.setAttribute("aria-hidden", "true");
-        document.body.appendChild(scrollFloatLayer);
-
-        const symbols = ["🌸", "❀", "♥", "♡"];
-        let lastSpawn = 0;
-
-        window.addEventListener(
-            "scroll",
-            () => {
-                const now = Date.now();
-                if (now - lastSpawn < 110) return; // keeps mobile smooth
-                lastSpawn = now;
-
-                const count = window.innerWidth < 600 ? 1 : 2;
-                for (let i = 0; i < count; i++) {
-                    const item = document.createElement("span");
-                    item.className = "scroll-float-item";
-                    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-
-                    const left = 6 + Math.random() * 88;
-                    const top = 15 + Math.random() * 75;
-                    const driftX = (Math.random() - 0.5) * 70;
-                    const driftY = -45 - Math.random() * 55;
-                    const rot = Math.floor(Math.random() * 90 - 45);
-                    const size = window.innerWidth < 600 ? 15 + Math.random() * 7 : 18 + Math.random() * 10;
-
-                    item.style.left = `${left}%`;
-                    item.style.top = `${top}%`;
-                    item.style.fontSize = `${size}px`;
-                    item.style.setProperty("--dx", `${driftX}px`);
-                    item.style.setProperty("--dy", `${driftY}px`);
-                    item.style.setProperty("--rot", `${rot}deg`);
-
-                    scrollFloatLayer.appendChild(item);
-                    setTimeout(() => item.remove(), 1200);
-                }
-            },
-            { passive: true }
-        );
+        
 
         gateOverlay.addEventListener("click", openInvitation);
         gateOverlay.addEventListener("keydown", (e) => {
