@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+\document.addEventListener("DOMContentLoaded", () => {
     const gateOverlay = document.getElementById("gateOverlay");
 
     const revealElements = document.querySelectorAll(".reveal");
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1500);
         };
 
-        
+
 
         gateOverlay.addEventListener("click", openInvitation);
         gateOverlay.addEventListener("keydown", (e) => {
