@@ -115,7 +115,7 @@ h3,
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 600;
-    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-size: clamp(1.35rem, 3vw, 2rem);
     color: var(--accent-light);
     display: inline-block;
     margin: 0.2rem 0.3rem;
@@ -210,12 +210,12 @@ section {
 .divider {
     width: 80px;
     height: 2px;
-    background-color: var(--accent);
+    background-color: var(--accent-light);
     margin: 0 auto 1.5rem auto;
 }
 
 .section-subtitle {
-    color: var(--text-muted);
+    color: var(--bg-light);
     max-width: 600px;
     margin: 0 auto 2.5rem auto;
 }
