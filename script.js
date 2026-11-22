@@ -77,12 +77,7 @@ const timer = setInterval(function () {
     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
 }, 1000);
 
-// RSVP Form Submission Handler
-document.getElementById("rsvpForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("rsvp-message").style.display = "block";
-    this.reset();
-});
+
 
 // Falling Cherry Blossom Petals
 (function createCherryBlossoms() {
