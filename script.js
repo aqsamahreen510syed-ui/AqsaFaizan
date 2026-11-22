@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (gateOverlay) {
         document.body.classList.add("gate-locked");
         let isOpened = false;
+        let touchMoved = false;
 
         const triggerBlossomBurst = () => {
             const isMobile = window.innerWidth < 600;
@@ -67,10 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        const openInvitation = (e) => {
-            if (e && e.type === "touchend") {
-                e.preventDefault();
-            }
+        const openInvitation = () => {
             if (isOpened) return;
             isOpened = true;
 
@@ -83,17 +81,32 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(showVisibleElements, 600);
 
             setTimeout(() => {
-                gateOverlay.remove();
+                if (gateOverlay.parentNode) {
+                    gateOverlay.remove();
+                }
             }, 1750);
         };
 
-        // Both touchend (instant mobile tap) and click (desktop/fallback)
-        gateOverlay.addEventListener("touchend", openInvitation, { passive: false });
+        gateOverlay.addEventListener("touchstart", () => {
+            touchMoved = false;
+        }, { passive: true });
+
+        gateOverlay.addEventListener("touchmove", () => {
+            touchMoved = true;
+        }, { passive: true });
+
+        gateOverlay.addEventListener("touchend", () => {
+            if (!touchMoved) {
+                openInvitation();
+            }
+        }, { passive: true });
+
         gateOverlay.addEventListener("click", openInvitation);
+
         gateOverlay.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                openInvitation(e);
+                openInvitation();
             }
         });
     }
@@ -108,8 +121,11 @@ const timer = setInterval(function () {
 
     if (distance < 0) {
         clearInterval(timer);
-        document.getElementById("countdown").innerHTML =
-            "<p style='color: var(--accent-light); font-size: 1.2rem;'>Alhamdulillah, the celebrations have begun!</p>";
+        const countdownEl = document.getElementById("countdown");
+        if (countdownEl) {
+            countdownEl.innerHTML =
+                "<p style='color: var(--accent-light); font-size: 1.2rem;'>Alhamdulillah, the celebrations have begun!</p>";
+        }
         return;
     }
 
