@@ -82,6 +82,36 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1500);
         };
 
+        // Scroll-blooming corner roses
+        const cornerRoses = document.getElementById("cornerRoses");
+        if (cornerRoses) {
+            let ticking = false;
+
+            const updateRoseBloom = () => {
+                const scrollTop = window.scrollY || window.pageYOffset || 0;
+                const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+                const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
+
+                // Starts partially budded (0.15) and opens to full bloom (1.0) as you scroll
+                const bloomValue = 0.15 + progress * 0.85;
+                cornerRoses.style.setProperty("--bloom", bloomValue.toFixed(3));
+                ticking = false;
+            };
+
+            window.addEventListener(
+                "scroll",
+                () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateRoseBloom);
+                        ticking = true;
+                    }
+                },
+                { passive: true }
+            );
+
+            updateRoseBloom();
+        }
+
         gateOverlay.addEventListener("click", openInvitation);
         gateOverlay.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
