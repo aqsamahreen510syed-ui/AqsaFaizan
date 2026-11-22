@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikah Invitation | Aqsa Mahreen &amp; Mohammed Faizan Ahmed</title>
   <meta property="og:title" content="Nikah Invitation | Aqsa Mahreen & Mohammed Faizan Ahmed" />
   <meta property="og:description"
-    content="Together with our families, we cordially invite you to grace the auspicious occasion of our Nikah" />
+    content="Together with our families, we cordially invite you to grace the auspicious occasion of our Nikah " />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,44 +22,23 @@
 
 <body>
 
-  <!-- ROYAL VELVET CURTAIN OVERLAY (Placed outside .page-border for reliable mobile touch & fixed positioning) -->
-  <div class="curtain-stage" id="gateOverlay" role="button" tabindex="0" aria-label="Tap to open Nikah invitation">
-    <div class="curtain-valance"></div>
-
-    <!-- Left Velvet Curtain with Individual Fabric Folds -->
-    <div class="curtain-side curtain-left">
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-edge"></div>
-    </div>
-
-    <!-- Right Velvet Curtain with Individual Fabric Folds -->
-    <div class="curtain-side curtain-right">
-      <div class="curtain-edge"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-      <div class="curtain-fold"></div>
-    </div>
-
-    <!-- Center Wax Seal -->
-    <div class="gate-seal-wrap" id="gateSeal">
-      <div class="wax-seal">
-        <span class="seal-initials">AF</span>
-      </div>
-      <p class="gate-prompt">Tap the Seal to Open</p>
-    </div>
-  </div>
-
-  <div class="petals-container" id="petalsContainer" aria-hidden="true"></div>
-
   <div class="page-border">
+    <!-- ROYAL ENTRANCE DOOR OVERLAY -->
+    <div class="gate-overlay" id="gateOverlay" role="button" tabindex="0" aria-label="Tap to open Nikah invitation">
+      <div class="gate-panel gate-left"></div>
+      <div class="gate-panel gate-right"></div>
+
+      <div class="gate-seal-wrap" id="gateSeal">
+        <div class="wax-seal">
+          <span class="seal-initials">AF</span>
+        </div>
+        <p class="gate-prompt">Tap the Seal to Open</p>
+      </div>
+    </div>
+
+    <div class="petals-container" id="petalsContainer" aria-hidden="true"></div>
+    
+
     <!-- HERO SECTION -->
     <header class="hero">
       <div class="hero-pattern"></div>
@@ -100,6 +79,7 @@
         </div>
       </div>
 
+
       <!-- QURANIC VERSE -->
       <section class="reveal">
         <div class="verse-box">
@@ -134,4 +114,47 @@
             <strong>Home</strong><br>
             Gajwel<br>
             <em>Followed by Dinner</em>
-          </p
+          </p>
+          <a href="https://maps.app.goo.gl/tVDVU95zP8qRsT2W8" target="_blank" class="btn-outline">View Location</a>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card reveal">
+          <h3>Nikah Ceremony</h3>
+          <p class="event-date">Monday, 21 Dec 2026 • After Isha</p>
+          <p class="event-details">
+            <strong>Shobha Gardens</strong><br>
+            Gajwel<br>
+            <em>Nikah after Isha, followed by Dinner</em>
+          </p>
+          <a href="https://maps.app.goo.gl/wm4QL387ABqUviBG9" target="_blank" class="btn-outline">View Location</a>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="event-card reveal">
+          <h3>Dawat-e-Walima</h3>
+          <p class="event-date">Wednesday, 23 Dec 2026 • 7:30 PM</p>
+          <p class="event-details">
+            <strong>SWAGAT CONVENTION MALLAPUR AC</strong><br>
+            Mallapur, Hyderabad<br>
+            <em>Dinner follows</em>
+          </p>
+          <a href="https://maps.app.goo.gl/gZxa1fYVApfy6jfX6" target="_blank" class="btn-outline">View Location</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="reveal">
+      <p class="dua">BarakAllahu Lakuma Wa Baraka Alaykuma Wa Jama'a Baynakuma Fi Khayr</p>
+      <p>With best compliments from Syed Kazim &amp; Family</p>
+      <p class="footer-contact">contact: +91 9440701289</p>
+    </footer>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>

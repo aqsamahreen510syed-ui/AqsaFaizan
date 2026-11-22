@@ -50,7 +50,7 @@ h3,
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     background: radial-gradient(circle at top, var(--primary-light) 0%, var(--primary) 100%);
     color: var(--bg-light);
     display: flex;
@@ -84,7 +84,7 @@ h3,
 .hero-content>* {
     opacity: 0;
     transform: translateY(14px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition: opacity 0.65s ease-out, transform 0.65s ease-out;
 }
 
 body.gate-open .hero-content>* {
@@ -93,23 +93,23 @@ body.gate-open .hero-content>* {
 }
 
 body.gate-open .hero-content>*:nth-child(1) {
-    transition-delay: 0.35s;
+    transition-delay: 0.2s;
 }
 
 body.gate-open .hero-content>*:nth-child(2) {
-    transition-delay: 0.48s;
+    transition-delay: 0.32s;
 }
 
 body.gate-open .hero-content>*:nth-child(3) {
-    transition-delay: 0.6s;
+    transition-delay: 0.44s;
 }
 
 body.gate-open .hero-content>*:nth-child(4) {
-    transition-delay: 0.72s;
+    transition-delay: 0.56s;
 }
 
 body.gate-open .hero-content>*:nth-child(5) {
-    transition-delay: 0.85s;
+    transition-delay: 0.68s;
 }
 
 .bismillah-svg {
@@ -169,6 +169,15 @@ body.gate-open .hero-content>*:nth-child(5) {
     margin-top: 1rem;
 }
 
+.couple-names span.amp {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--bg-light);
+    margin: 0.1rem 0;
+}
+
 .wedding-date-hero {
     margin-top: 1.5rem;
     padding: 0.75rem 2rem;
@@ -196,7 +205,6 @@ body.gate-open .hero-content>*:nth-child(5) {
     min-width: 82px;
     border-radius: 6px;
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -453,150 +461,118 @@ footer .dua {
     }
 }
 
-/* =========================================================
-   ROYAL VELVET STAGE CURTAINS (Mobile-Safe & Realistic Folds)
-   ========================================================= */
+/* Lock scroll until curtain opens */
 body.gate-locked {
     overflow: hidden;
-    touch-action: none;
+    height: 100dvh;
 }
 
-.curtain-stage {
+/* Full-screen Curtain Overlay */
+.gate-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
+    inset: 0;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
+    overflow: hidden;
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
 
-.curtain-stage.opened {
+.gate-overlay.opened {
     pointer-events: none;
 }
 
-/* Top Royal Velvet Pelmet / Valance */
+/* Top Gold-Trimmed Velvet Pelmet / Valance */
 .curtain-valance {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 28px;
-    z-index: 4;
-    background: linear-gradient(180deg, #1E0308 0%, #4A0E17 70%, #2C060D 100%);
+    height: 34px;
+    z-index: 3;
+    background: linear-gradient(180deg, #24040A 0%, #4A0E17 75%, #32070F 100%);
     border-bottom: 2px solid var(--accent);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s, opacity 0.6s ease 0.75s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s ease 0.5s;
 }
 
-.curtain-stage.opened .curtain-valance {
-    transform: translate3d(0, -105%, 0);
+.gate-overlay.opened .curtain-valance {
+    transform: translateY(-100%);
     opacity: 0;
 }
 
-/* Left & Right Curtain Containers */
-.curtain-side {
+/* Left & Right Pleated Velvet Curtains */
+.curtain-panel {
     position: absolute;
     top: 0;
-    width: 50.2%;
+    width: 50.5%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    z-index: 2;
-    transition: transform 1.65s cubic-bezier(0.25, 1, 0.35, 1);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    background-image:
+        repeating-linear-gradient(90deg,
+            rgba(18, 2, 6, 0.68) 0px,
+            rgba(74, 14, 23, 0.25) 18px,
+            rgba(128, 26, 42, 0.32) 34px,
+            rgba(74, 14, 23, 0.25) 50px,
+            rgba(18, 2, 6, 0.72) 68px),
+        radial-gradient(circle at 50% 40%, #6B1422 0%, #3A0912 65%, #220409 100%);
+    background-size: 68px 100%, 100% 100%;
+    transition:
+        transform 1.55s cubic-bezier(0.65, 0, 0.35, 1),
+        width 1.55s cubic-bezier(0.65, 0, 0.35, 1),
+        border-radius 1.4s ease;
+    will-change: transform, width;
 }
 
 .curtain-left {
     left: 0;
-    transform-origin: left center;
+    transform-origin: top left;
+    border-right: 2px solid rgba(201, 154, 69, 0.75);
+    box-shadow: inset -18px 0 35px rgba(0, 0, 0, 0.55), 8px 0 25px rgba(0, 0, 0, 0.5);
 }
 
 .curtain-right {
     right: 0;
-    transform-origin: right center;
+    transform-origin: top right;
+    border-left: 2px solid rgba(201, 154, 69, 0.75);
+    box-shadow: inset 18px 0 35px rgba(0, 0, 0, 0.55), -8px 0 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Individual 3D Velvet Pleats/Folds */
-.curtain-fold {
-    flex: 1;
-    height: 100%;
-    background: linear-gradient(90deg,
-            #1F0308 0%,
-            #480C15 24%,
-            #751625 48%,
-            #4E0E18 76%,
-            #190206 100%);
-    box-shadow: inset 0 -40px 80px rgba(0, 0, 0, 0.45);
-    transition: transform 1.65s cubic-bezier(0.25, 1, 0.35, 1);
-    will-change: transform;
+/* Curtain Drape & Gather Open State */
+.gate-overlay.opened .curtain-left {
+    transform: translateX(-92%) skewX(-3.5deg) scaleX(0.55);
+    border-bottom-right-radius: 45% 25%;
 }
 
-/* Subtle variation in fold highlights for organic fabric depth */
-.curtain-fold:nth-child(even) {
-    background: linear-gradient(90deg,
-            #1A0206 0%,
-            #430B14 28%,
-            #6C1422 52%,
-            #460C15 78%,
-            #160205 100%);
-}
-
-/* Gold Zari / Embroidered Inner Curtain Edge */
-.curtain-edge {
-    width: 6px;
-    height: 100%;
-    flex-shrink: 0;
-    background: linear-gradient(180deg,
-            #9C7126 0%,
-            #F3D38C 25%,
-            #C99A45 50%,
-            #F3D38C 75%,
-            #9C7126 100%);
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
-}
-
-/* Smooth Accordion Pull-Back Animation */
-.curtain-stage.opened .curtain-left {
-    transform: translate3d(-94%, 0, 0) scaleX(0.32);
-}
-
-.curtain-stage.opened .curtain-right {
-    transform: translate3d(94%, 0, 0) scaleX(0.32);
+.gate-overlay.opened .curtain-right {
+    transform: translateX(92%) skewX(3.5deg) scaleX(0.55);
+    border-bottom-left-radius: 45% 25%;
 }
 
 /* Center Gold Wax Seal */
 .gate-seal-wrap {
     position: relative;
-    z-index: 5;
+    z-index: 4;
     text-align: center;
-    padding: 1rem;
-    transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.curtain-stage.opened .gate-seal-wrap {
+.gate-overlay.opened .gate-seal-wrap {
     opacity: 0;
-    transform: scale(0.75);
+    transform: scale(0.8);
 }
 
 .wax-seal {
-    width: 118px;
-    height: 118px;
-    margin: 0 auto 1rem auto;
+    width: 124px;
+    height: 124px;
+    margin: 0 auto 1.1rem auto;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #F3D38C 0%, #C99A45 62%, #9C7126 100%);
     border: 3px double rgba(58, 9, 18, 0.55);
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.6),
+        0 10px 30px rgba(0, 0, 0, 0.55),
         0 0 0 8px rgba(201, 154, 69, 0.18);
     display: flex;
     flex-direction: column;
@@ -609,7 +585,7 @@ body.gate-locked {
 .seal-initials {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 2.8rem;
+    font-size: 3rem;
     line-height: 1;
 }
 
@@ -629,7 +605,7 @@ body.gate-locked {
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--accent-light);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes sealPulse {
@@ -637,12 +613,12 @@ body.gate-locked {
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(201, 154, 69, 0.18);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(201, 154, 69, 0.18);
     }
 
     50% {
         transform: scale(1.05);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.7), 0 0 0 14px rgba(201, 154, 69, 0.06);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 0 14px rgba(201, 154, 69, 0.06);
     }
 }
 
@@ -720,19 +696,6 @@ body.gate-locked {
 
     .event-card {
         padding: 1.8rem 1.25rem;
-    }
-
-    .curtain-edge {
-        width: 4px;
-    }
-
-    .wax-seal {
-        width: 104px;
-        height: 104px;
-    }
-
-    .seal-initials {
-        font-size: 2.35rem;
     }
 
     @keyframes petalSway {

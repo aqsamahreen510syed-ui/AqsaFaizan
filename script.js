@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gateOverlay = document.getElementById("gateOverlay");
+
     const revealElements = document.querySelectorAll(".reveal");
 
     const showVisibleElements = () => {
@@ -35,19 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (gateOverlay) {
         document.body.classList.add("gate-locked");
-        let isOpened = false;
-        let touchMoved = false;
 
         const triggerBlossomBurst = () => {
-            const isMobile = window.innerWidth < 600;
-            const petalCount = isMobile ? 26 : 40;
+            const petalCount = 40;
 
             for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement("div");
                 petal.classList.add("burst-petal");
 
                 const angle = (i / petalCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-                const distance = (isMobile ? 80 : 110) + Math.random() * (isMobile ? 160 : 270);
+                const distance = 110 + Math.random() * 270;
                 const tx = Math.cos(angle) * distance;
                 const ty = Math.sin(angle) * distance;
                 const rot = Math.floor(Math.random() * 720 - 360);
@@ -69,8 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const openInvitation = () => {
-            if (isOpened) return;
-            isOpened = true;
+            if (gateOverlay.classList.contains("opened")) return;
 
             triggerBlossomBurst();
 
@@ -78,31 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove("gate-locked");
             document.body.classList.add("gate-open");
 
-            setTimeout(showVisibleElements, 600);
+            setTimeout(showVisibleElements, 500);
 
             setTimeout(() => {
-                if (gateOverlay.parentNode) {
-                    gateOverlay.remove();
-                }
-            }, 1750);
+                gateOverlay.remove();
+            }, 1650);
         };
 
-        gateOverlay.addEventListener("touchstart", () => {
-            touchMoved = false;
-        }, { passive: true });
-
-        gateOverlay.addEventListener("touchmove", () => {
-            touchMoved = true;
-        }, { passive: true });
-
-        gateOverlay.addEventListener("touchend", () => {
-            if (!touchMoved) {
-                openInvitation();
-            }
-        }, { passive: true });
-
         gateOverlay.addEventListener("click", openInvitation);
-
         gateOverlay.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
@@ -112,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Countdown Timer (Set to Dec 21, 2026 20:30:00 - Nikah After Isha)
-const weddingDate = new Date("December 21, 2026 20:30:00").getTime();
+// Countdown Timer (Set to Dec 19, 2026 11:30:00)
+const weddingDate = new Date("December 19, 2026 11:30:00").getTime();
 
 const timer = setInterval(function () {
     const now = new Date().getTime();
@@ -121,11 +101,8 @@ const timer = setInterval(function () {
 
     if (distance < 0) {
         clearInterval(timer);
-        const countdownEl = document.getElementById("countdown");
-        if (countdownEl) {
-            countdownEl.innerHTML =
-                "<p style='color: var(--accent-light); font-size: 1.2rem;'>Alhamdulillah, the celebrations have begun!</p>";
-        }
+        document.getElementById("countdown").innerHTML =
+            "<p style='color: var(--accent-light); font-size: 1.2rem;'>Alhamdulillah, the celebrations have begun!</p>";
         return;
     }
 
