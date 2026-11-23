@@ -1,4 +1,4 @@
-\document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const gateOverlay = document.getElementById("gateOverlay");
 
     const revealElements = document.querySelectorAll(".reveal");
