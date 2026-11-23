@@ -743,39 +743,3 @@ body.gate-locked {
     }
 }
 
-.page-border {
-    position: relative;
-}
-
-/* Top Mughal Arch & Minars */
-.mughal-top-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 155px;
-    pointer-events: none;
-    z-index: 5;
-    overflow: hidden;
-}
-
-.mughal-top-wrap svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* Give Hero Top Space Below Arch Apex */
-.hero {
-    padding-top: 6.5rem;
-}
-
-@media (max-width: 600px) {
-    .mughal-top-wrap {
-        height: 115px;
-    }
-
-    .hero {
-        padding-top: 5.5rem;
-    }
-}
