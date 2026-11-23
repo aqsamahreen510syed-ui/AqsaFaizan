@@ -467,13 +467,13 @@ footer .dua {
     }
 }
 
-/* Lock scroll until gate opens */
+/* Lock scroll until 3D doors open */
 body.gate-locked {
     overflow: hidden;
     height: 100dvh;
 }
 
-/* Full-screen Gate Overlay */
+/* Full-screen 3D Gate Overlay */
 .gate-overlay {
     position: fixed;
     inset: 0;
@@ -482,89 +482,124 @@ body.gate-locked {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    perspective: 1400px;
+    perspective: 1600px;
+    transform-style: preserve-3d;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
 }
 
 .gate-overlay.opened {
     pointer-events: none;
 }
 
-/* Left & Right Royal Burgundy Doors */
+/* Left & Right 3D Hinged Burgundy Doors */
 .gate-panel {
     position: absolute;
     top: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(circle at center, #5E1220 0%, #32070F 100%);
-    background-image:
+    background:
         radial-gradient(rgba(243, 211, 140, 0.14) 1px, transparent 1px),
-        linear-gradient(180deg, #3A0912 0%, #4A0E17 50%, #2B060D 100%);
+        linear-gradient(180deg, #540d19 0%, #3a0710 52%, #240309 100%);
     background-size: 32px 32px, 100% 100%;
     transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .gate-left {
     left: 0;
-    border-right: 1.5px solid rgba(201, 154, 69, 0.65);
-    box-shadow: inset -12px 0 30px rgba(0, 0, 0, 0.45);
+    border-right: 1.5px solid rgba(201, 154, 69, 0.7);
+    box-shadow:
+        inset -16px 0 34px rgba(0, 0, 0, 0.55),
+        6px 0 24px rgba(0, 0, 0, 0.45);
     transform-origin: left center;
 }
 
 .gate-right {
     right: 0;
-    border-left: 1.5px solid rgba(201, 154, 69, 0.65);
-    box-shadow: inset 12px 0 30px rgba(0, 0, 0, 0.45);
+    border-left: 1.5px solid rgba(201, 154, 69, 0.7);
+    box-shadow:
+        inset 16px 0 34px rgba(0, 0, 0, 0.55),
+        -6px 0 24px rgba(0, 0, 0, 0.45);
     transform-origin: right center;
 }
 
-/* Door Swing / Slide Open State */
+/* Recessed 3D Gold Panel Molding on Each Door */
+.gate-molding {
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(243, 211, 140, 0.36);
+    box-shadow:
+        inset 0 0 24px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(243, 211, 140, 0.14);
+    pointer-events: none;
+}
+
+/* 3D Door Swing State */
 .gate-overlay.opened .gate-left {
-    transform: translateX(-100%) rotateY(22deg);
+    transform: translateX(-96%) rotateY(-68deg);
 }
 
 .gate-overlay.opened .gate-right {
-    transform: translateX(100%) rotateY(-22deg);
+    transform: translateX(96%) rotateY(68deg);
 }
 
-/* Center Gold Wax Seal */
+/* Center Embossed Wax Seal */
 .gate-seal-wrap {
     position: relative;
     z-index: 2;
     text-align: center;
+    transform: translateZ(40px);
     transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .gate-overlay.opened .gate-seal-wrap {
     opacity: 0;
-    transform: scale(0.8);
+    transform: translateZ(40px) scale(0.8);
 }
 
 .wax-seal {
-    width: 124px;
-    height: 124px;
+    width: 128px;
+    height: 128px;
     margin: 0 auto 1.1rem auto;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #F3D38C 0%, #C99A45 62%, #9C7126 100%);
-    border: 3px double rgba(58, 9, 18, 0.55);
+    padding: 8px;
+    background: radial-gradient(circle at 30% 28%, #8f1628 0%, #5e0b18 65%, #38050d 100%);
+    border: 2px solid rgba(243, 211, 140, 0.78);
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.55),
-        0 0 0 8px rgba(201, 154, 69, 0.18);
+        0 14px 32px rgba(0, 0, 0, 0.65),
+        inset 0 2px 5px rgba(255, 220, 165, 0.28),
+        0 0 0 8px rgba(201, 154, 69, 0.16);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #3A0912;
     animation: sealPulse 2.2s infinite ease-in-out;
 }
 
+.wax-seal-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(243, 211, 140, 0.68);
+    background: radial-gradient(circle at 35% 30%, #6d101e 0%, #420710 100%);
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .seal-initials {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 2.75rem;
+    letter-spacing: 2px;
     line-height: 1;
+    color: #F3D38C;
+    text-shadow:
+        0 1px 0 rgba(255, 240, 195, 0.4),
+        0 3px 8px rgba(0, 0, 0, 0.75);
 }
 
 .seal-sub {
@@ -582,8 +617,8 @@ body.gate-locked {
     font-size: 0.78rem;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--accent-light);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    color: #F3D38C;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
 }
 
 @keyframes sealPulse {
@@ -591,12 +626,18 @@ body.gate-locked {
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(201, 154, 69, 0.18);
+        box-shadow:
+            0 14px 32px rgba(0, 0, 0, 0.65),
+            inset 0 2px 5px rgba(255, 220, 165, 0.28),
+            0 0 0 6px rgba(201, 154, 69, 0.16);
     }
 
     50% {
         transform: scale(1.05);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), 0 0 0 14px rgba(201, 154, 69, 0.06);
+        box-shadow:
+            0 18px 38px rgba(0, 0, 0, 0.75),
+            inset 0 2px 6px rgba(255, 220, 165, 0.35),
+            0 0 0 14px rgba(201, 154, 69, 0.06);
     }
 }
 
